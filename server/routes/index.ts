@@ -9,7 +9,7 @@ const router = require('express').Router();
 
 router.get('/', sayHi);
 router.post('/signup', signup);
-router.get('/test', findAll);
+router.get('/users', findAll);
 router.post('/login', login);
 
 export default router;

@@ -12,11 +12,10 @@ const App: React.FC = () => {
     }
     axios.post('http://localhost:3000/login', data)
     .then(response=>{
-      console.log(response);
       if(response.data.success){
         alert('login success');
       } else{
-        alert('login fail');
+        alert(`login fail! - ${response.data.message}`);
       }
     })
     .catch(function (error) {

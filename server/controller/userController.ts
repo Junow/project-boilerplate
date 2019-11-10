@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
+import { Query } from 'mongoose';
 import { IUser } from '../interfaces/user';
 // import User from '../models/user';
 
@@ -11,7 +11,7 @@ const sayHi = (req: Request, res: Response, next: NextFunction) => {
 
 const findAll = (req:Request, res: Response) => {
   User
-    .User.findAll()
+    .findAll()
     .then((users:Array<IUser>) => {
       if (!users.length) return res.status(404).send({ err: 'User not found' });
       res.send(`find successfully: ${users}`);
@@ -23,9 +23,9 @@ const login = (req: Request, res:Response) => {
   const { id, pwd } = req.body;
   User.findById(id)
     .then((user:IUser) => {
-      if (!user) return res.status(404).send({ err: 'id not found' });
+      if (!user) return res.json({ success: false, message: 'id not found' });
       if (user.pwd === pwd) return res.json({ success: true });
-      return res.status(404).send({ err: 'pwd is not correct' });
+      return res.json({ success: false, message: 'pwd is not correct' });
     })
     .catch((err:Object) => {
       res.json(`error!${err}`);
