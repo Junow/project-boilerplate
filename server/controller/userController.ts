@@ -35,7 +35,7 @@ const login = (req: Request, res:Response) => {
 const signup = (req: Request, res: Response, next: NextFunction) => {
   User.create(req.body)
     .then((user:IUser) => {
-      res.json(user);
+      res.json({ success: true });
     })
     .catch((err:Object) => {
       res.json(`error!${err}`);
