@@ -15,7 +15,9 @@ module.exports =  {
       // e.g. "@typescript-eslint/explicit-function-return-type": "off",
       'no-console':'warn',
       'no-unused-vars':'warn',
-      'space-before-function-paren': 0,
       'no-use-before-define':'warn',
+      'semi': [ 'error', 'always' ],
+      'quotes':['error', 'single'],
+      'space-before-blocks':['error', 'always']
     },
   };

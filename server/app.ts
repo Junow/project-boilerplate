@@ -1,21 +1,23 @@
 import { NextFunction, Request, Response } from 'express';
-
 import index from './routes';
 import users from './routes/users';
 
+const cors = require('cors');
 const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-// const index = require('./routes');
-// const users = require('./routes/users');
+const connect = require('./mongo');
 
 const app = express();
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(cors());
+
+connect();
 
 app.use('/', index);
 app.use('/users', users);
