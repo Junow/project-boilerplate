@@ -1,11 +1,10 @@
-import * as express from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const router = express.Router();
+const router = require('express').Router();
 
 /* GET users listing. */
-router.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+router.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.send('respond with a resource');
 });
-
 
 export default router;

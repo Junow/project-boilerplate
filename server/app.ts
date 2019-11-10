@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import index from './routes';
 import users from './routes/users';
 
+require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const logger = require('morgan');

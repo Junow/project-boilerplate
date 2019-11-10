@@ -5,7 +5,7 @@ module.exports = () => {
     if (process.env.NODE_ENV !== 'production') {
       mongoose.set('debug', true);
     }
-    mongoose.connect('mongodb://106.10.45.57/admin', { useNewUrlParser: true }, (err) => {
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
       if (err) {
         console.log('mongodb connection error', err);
       } else {
