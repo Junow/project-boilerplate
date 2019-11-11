@@ -9,6 +9,9 @@ module.exports = {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "exclude": [
+        "node_modules/**/*.ts"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
