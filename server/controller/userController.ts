@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { Query } from 'mongoose';
-import { IUser } from '../interfaces/user';
+import { interfaceUser } from '../interfaces/index';
 // import User from '../models/user';
 
-const User = require('../models/user');
+const User = require('../schemas/user');
 
 const sayHi = (req: Request, res: Response, next: NextFunction) => {
   res.json('hihi');
@@ -12,7 +12,7 @@ const sayHi = (req: Request, res: Response, next: NextFunction) => {
 const findAll = (req:Request, res: Response) => {
   User
     .findAll()
-    .then((users:Array<IUser>) => {
+    .then((users:Array<interfaceUser>) => {
       if (!users.length) return res.status(404).send({ err: 'User not found' });
       res.send(`find successfully: ${users}`);
     })
@@ -22,7 +22,7 @@ const findAll = (req:Request, res: Response) => {
 const login = (req: Request, res:Response) => {
   const { id, pwd } = req.body;
   User.findById(id)
-    .then((user:IUser) => {
+    .then((user:interfaceUser) => {
       if (!user) return res.json({ success: false, message: 'id not found' });
       if (user.pwd === pwd) return res.json({ success: true });
       return res.json({ success: false, message: 'pwd is not correct' });
@@ -34,7 +34,7 @@ const login = (req: Request, res:Response) => {
 
 const signup = (req: Request, res: Response, next: NextFunction) => {
   User.create(req.body)
-    .then((user:IUser) => {
+    .then((user:interfaceUser) => {
       res.json({ success: true });
     })
     .catch((err:Object) => {

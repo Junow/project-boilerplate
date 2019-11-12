@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec 'ts-node' bin/www.ts"
+    "start": "NODE_ENV=development nodemon --exec 'ts-node' bin/www.ts",
+    "seed": "NODE_ENV=development 'ts-node' seed/index.ts",
+    "seed:test": "NODE_ENV=test 'ts-node' seed/index.ts",
+    "dbreset": "NODE_ENV=development 'ts-node' migration/index.js",
+    "dbreset:test": "NODE_ENV=test 'ts-node' migration/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -15,6 +19,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongoose": "^5.7.9",
+    "mongoose-data-seed": "^2.1.4",
     "morgan": "~1.9.1",
     "path": "^0.12.7"
   },
@@ -37,5 +42,9 @@
     "prettier": "^1.19.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.7.2"
+  },
+  "mdSeed": {
+    "seedersFolder": "./seeders",
+    "customSeederTemplate": "./md-seed-template.ejs"
   }
 }

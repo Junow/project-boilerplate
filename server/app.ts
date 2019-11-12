@@ -8,7 +8,7 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const connect = require('./mongo');
+const connect = require('./config/mongo');
 
 const app = express();
 app.use(logger('dev'));
@@ -25,7 +25,6 @@ app.use('/users', users);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   const err = new Error('Not Found');
-
   next({ ...err, status: 404 });
 });
 
