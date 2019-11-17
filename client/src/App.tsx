@@ -7,7 +7,7 @@ import {
 import Login from './components/login';
 import Home from './components/home';
 import Header from './components/header';
-import CounterContainer from './containers/CounterContainer';
+import Counter from './components/counter';
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -15,7 +15,7 @@ const App: React.FC = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/login" component={Login} />
-      <Route path="/counter" component={CounterContainer} />
+      <Route path="/counter" component={Counter} />
       <Redirect path="*" to="/" />
     </Switch>
   </BrowserRouter>
