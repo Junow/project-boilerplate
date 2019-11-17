@@ -3,15 +3,16 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    parser:  '@typescript-eslint/parser',
-    "extends": "airbnb",
+    "extends": [
+        'airbnb',
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    "exclude": [
-        "node_modules/**/*.ts"
-    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -20,14 +21,15 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
     "rules": {
-        'no-console':'warn',
-      'no-unused-vars':'warn',
-      'no-use-before-define':'warn',
-      'semi': [ 'error', 'always' ],
-      'quotes':['error', 'single'],
-      'space-before-blocks':['error', 'always']
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".jsx", ".tsx"]
+          }],
+
+        "@typescript-eslint/no-unused-vars":1,
+        "import/no-unresolved": 0
     }
 };

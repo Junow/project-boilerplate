@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const useInputTag = (defaultValue: any) => {
   const [value, setValue] = useState(defaultValue);
 
@@ -24,7 +23,6 @@ const Login:React.FC = () => {
       <h3>pwd: </h3>
       <input value={pwd} onChange={setPwd} type="password" />
     </div>
-
   );
 };
 

@@ -13,6 +13,11 @@ const Header:React.FC = () => (
             login
       </Link>
     </h1>
+    <h1>
+      <Link to="/counter">
+            counter
+      </Link>
+    </h1>
   </div>
 );
 

@@ -3,9 +3,11 @@ import {
   Switch, Route, BrowserRouter, Redirect,
 } from 'react-router-dom';
 
-import Login from './login';
-import Home from './home';
-import Header from './header';
+
+import Login from './components/login';
+import Home from './components/home';
+import Header from './components/header';
+import CounterContainer from './containers/CounterContainer';
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -13,6 +15,7 @@ const App: React.FC = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/counter" component={CounterContainer} />
       <Redirect path="*" to="/" />
     </Switch>
   </BrowserRouter>
