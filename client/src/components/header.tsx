@@ -18,6 +18,11 @@ const Header:React.FC = () => (
             counter
       </Link>
     </h1>
+    <h1>
+      <Link to="/todo">
+            todo
+      </Link>
+    </h1>
   </div>
 );
 

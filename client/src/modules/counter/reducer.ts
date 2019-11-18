@@ -1,6 +1,11 @@
 import {
-  INCREASE, DECREASE, INCREASE_BY, CounterState, initialState, CounterAction,
-} from '../actions/counter';
+  INCREASE, DECREASE, INCREASE_BY,
+} from './action';
+import { CounterState, CounterAction } from './types';
+
+const initialState: CounterState = {
+  count: 0,
+};
 
 function counter(state: CounterState = initialState, action: CounterAction) {
   switch (action.type) {
